@@ -1,0 +1,49 @@
+{
+    "teams": [
+        {
+            "name": "Heren A",
+            "league": "Liga B",
+            "sex": "Men",
+            "players": [
+                {
+                    "name": "Wouter Gijsemans",
+                    "position": "Middle Blocker"
+                },
+                {
+                    "name": "Ruben de Ryck",
+                    "position": "Opposite"
+                }
+            ]
+        },
+        {
+            "name": "Heren B",
+            "league": "1e nationale",
+            "sex": "Men",
+            "players": [
+                {
+                    "name": "Kevin Kestens",
+                    "position": "Outside Hitter"
+                },
+                {
+                    "name": "Didier Witvrouwen",
+                    "position": "Setter"
+                }
+            ]
+        },
+        {
+            "name": "Heren C",
+            "league": "1e divisie A",
+            "sex": "Men",
+            "players": [
+                {
+                    "name": "Siebe De Hert",
+                    "position": "Outside Hitter"
+                },
+                {
+                    "name": "Jelte Liekens",
+                    "position": "Outside Hitter"
+                }
+            ]
+        }
+    ]
+}

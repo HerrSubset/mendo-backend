@@ -1,4 +1,5 @@
 const http = require('http')
+const teams = require('./teams.json')
 
 const hostname = '127.0.0.1'
 const port = 3000
@@ -29,13 +30,10 @@ const server = http.createServer((req, res) => {
     
     routerInstance.dispatch(req)
     res.setHeader('Content-Type', 'text/plain')
-    res.end('Hello, World!\n')
+    res.end(JSON.stringify(teams))
 })
 
 server.listen(port, hostname, () => {
     console.log(`Server running at http://${hostname}:${port}/`)
 })
-
-
-
 
