@@ -11,9 +11,9 @@ router.add('/teams', (_, res) => {
     res.setHeader('Content-Type', 'application/json')
     res.end(JSON.stringify(teams))
 })
-router.add('/teams/:id', (_, res) => {
+router.add('/teams/:id', (_, res, variables) => {
     res.setHeader('Content-Type', 'text/plain')
-    res.end('Individual team requested\n')
+    res.end(`Individual team with id ${variables.id} requested\n`)
 })
 router.add('/news', (_, res) => {
     res.setHeader('Content-Type', 'application/json')
