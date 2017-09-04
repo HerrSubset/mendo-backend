@@ -2,4 +2,4 @@
 
 A toy project to learn about nodejs.
 
-To deploy/develop locally, run `npm install` and `npm start` 
+To deploy/develop locally, run `npm install` and `npm run start-dev` 
