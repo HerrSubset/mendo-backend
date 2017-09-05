@@ -3,6 +3,11 @@ const _ = require('ramda')
 
 const routes = []
 
+
+/******************************************************************************
+* Utilities
+******************************************************************************/
+
 const path_array = url => url.split('?')[0].split('/')
 
 const url_zip = (template_ary, url_ary) =>
@@ -25,6 +30,11 @@ const extract_variables = (path_template, url) =>
             return acc
         }, {})
 
+
+
+/******************************************************************************
+* Router Object
+******************************************************************************/
 
 module.exports = {
     add: (route, callback) => routes.push({route: route, callback: callback}),
