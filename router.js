@@ -10,8 +10,8 @@ const routes = []
 
 const path_array = url => url.split('?')[0].split('/')
 
-const url_zip = (template_ary, url_ary) =>
-    _.zipWith((template, url) => ({template, url}), template_ary, url_ary)
+// hooray for currying
+const url_zip = _.zipWith((template, url) => ({template, url}))
 
 const template_matches_url = (path_template, url) => {
     const template_path_array = path_array(path_template)
