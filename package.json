@@ -6,12 +6,14 @@
   "scripts": {
     "start": "node index.js",
     "start-dev": "nodemon index.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha",
     "deploy": "now --public"
   },
   "author": "HerrSubset",
   "license": "ISC",
   "devDependencies": {
+    "chai": "*",
+    "mocha": "*",
     "nodemon": "^1.11.0"
   },
   "dependencies": {
