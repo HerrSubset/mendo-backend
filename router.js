@@ -5,14 +5,23 @@ const _ = require('ramda')
 * Utilities
 ******************************************************************************/
 
+const strip_trailing_slash = url => {
+    const path = url.split('?')[0]
+    if (path.endsWith('/')) {
+        return path.slice(0,-1)
+    } else {
+        return path
+    }
+}
+
 const path_array = url => url.split('?')[0].split('/')
 
 // hooray for currying
 const url_zip = _.zipWith((route_part, url_part) => ({route_part, url_part}))
 
 const route_matches_url = (route, url) => {
-    const route_array = path_array(route)
-    const url_array = path_array(url)
+    const route_array = path_array(strip_trailing_slash(route))
+    const url_array = path_array(strip_trailing_slash(url))
 
     return route_array.length === url_array.length &&
         url_zip(route_array, url_array)
@@ -33,25 +42,30 @@ const extract_variables = (route, url) =>
 * Router Object
 ******************************************************************************/
 
-const templates = []
 
-module.exports = {
-    add: (route, callback) => templates.push({route, callback}),
+module.exports.createRouter = _ => {
+    
+    const templates = []
 
-    dispatch: (req, res) => {
-        const { url } = req
-        console.log(`Incoming request on ${url}`)
+    return {
+        add: (route, callback) => templates.push({route, callback}),
 
-        const template = templates
-            .filter(x => route_matches_url(x.route, url))
-            .shift()
+        dispatch: (req, res) => {
+            const { url } = req
 
-        if (template) {
-            template.callback(req, res, extract_variables(template.route, url)) 
-        } else {
-            res.statusCode = 404
-            res.end('Oops, 404 not found')
-            console.log(`No action found for route ${url}`)
+            console.log(`Incoming request on ${url}`)
+    
+            const template = templates
+                .filter(x => route_matches_url(x.route, url))
+                .shift()
+    
+            if (template) {
+                template.callback(req, res, extract_variables(template.route, url)) 
+            } else {
+                res.statusCode = 404
+                res.end('Oops, 404 not found')
+                console.log(`No action found for route ${url}`)
+            }
         }
     }
 }

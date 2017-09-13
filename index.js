@@ -1,5 +1,5 @@
 const http = require('http')
-const router = require('./router.js')
+const routing = require('./router.js')
 const teams = require('./teams.json')
 const news = require('./news.json')
 
@@ -21,6 +21,8 @@ const sluggify = x =>
 /******************************************************************************
 * Routes
 ******************************************************************************/
+
+const router = routing.createRouter()
 
 router.add('/teams', (_, res) => { 
     json_response(res, teams)
