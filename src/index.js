@@ -1,7 +1,7 @@
 const http = require('http')
 const routing = require('./router.js')
-const teams = require('./teams.json')
-const news = require('./news.json')
+const teams = require('../data/teams.json')
+const news = require('../data/news.json')
 
 
 /******************************************************************************

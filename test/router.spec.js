@@ -1,6 +1,6 @@
 const { spy } = require('sinon')
 const { assert, expect } = require('chai')
-const routing = require('../router.js')
+const routing = require('../src/router.js')
 
 describe('a router object', function() {
     describe('with one route /teams/:id', function() {

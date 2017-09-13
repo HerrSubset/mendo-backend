@@ -2,10 +2,10 @@
   "name": "mendo-backend",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
-    "start": "node index.js",
-    "start-dev": "nodemon index.js",
+    "start": "node src/index.js",
+    "start-dev": "nodemon src/index.js",
     "test": "mocha",
     "test-watch": "mocha --watch",
     "deploy": "now --public"
